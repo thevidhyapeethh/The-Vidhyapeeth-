@@ -36,8 +36,30 @@
 </div>
 
 <script>
+  let selectedRole = "";
+
   function setRole(role) {
+    selectedRole = role;
     document.getElementById("loginTitle").innerText = role + " Login";
+  }
+
+  function login() {
+    if (selectedRole === "") {
+      alert("Please select Admin, Teacher or Student");
+      return;
+    }
+
+    if (selectedRole === "Admin") {
+      window.location.href = "admin.html";
+    } 
+    else if (selectedRole === "Teacher") {
+      window.location.href = "teacher.html";
+    } 
+    else if (selectedRole === "Student") {
+      window.location.href = "student.html";
+    }
+  }
+</script>).innerText = role + " Login";
   }
 </script>
 
