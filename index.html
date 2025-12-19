@@ -10,27 +10,37 @@
 
 <div class="overlay"></div>
 
-<div class="login-box">
-  <img src="https://i.imgur.com/6qKQ0wL.png" class="logo">
-  <h2>Admin Login</h2>
+<div class="login-wrapper">
+  <div class="login-box">
 
-  <input type="text" placeholder="Username">
-  <input type="password" placeholder="Password">
+    <h1 class="brand">The Vidhyapeeth</h1>
+    <h3 id="loginTitle">Login</h3>
 
-  <button class="login-btn">Sign In</button>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
 
-  <div class="roles">
-    <button>Admin</button>
-    <button>Teacher</button>
-    <button>Student</button>
-  </div>
+    <button class="login-btn">Sign In</button>
 
-  <div class="links">
-    <a href="#">Forgot Password?</a>
-    <a href="#">Front Site</a>
-    <a href="#">User Login</a>
+    <div class="roles">
+      <button onclick="setRole('Admin')">Admin</button>
+      <button onclick="setRole('Teacher')">Teacher</button>
+      <button onclick="setRole('Student')">Student</button>
+    </div>
+
+    <div class="links">
+      <a href="#">Forgot Password?</a>
+      <a href="#">User Login</a>
+      <a href="#">Front Site</a>
+    </div>
+
   </div>
 </div>
+
+<script>
+  function setRole(role) {
+    document.getElementById("loginTitle").innerText = role + " Login";
+  }
+</script>
 
 </body>
 </html>
