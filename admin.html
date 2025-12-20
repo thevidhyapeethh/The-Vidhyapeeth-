@@ -1,10 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin Panel</title>
+  <title>Admin Panel - Vidhyapeeth</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1976D2;
+    }
+
+    .logout {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      text-decoration: none;
+      color: crimson;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome Admin</h1>
-  <p>This is Admin Dashboard</p>
+
+  <div class="card">
+    <h2>Admin Attendance Control</h2>
+
+    <label>Student Name</label>
+    <input type="text" id="studentName" value="Edward Thomas">
+
+    <label>Attendance (%)</label>
+    <input type="number" id="attendance" min="0" max="100" value="79">
+
+    <button onclick="saveAttendance()">Save Attendance</button>
+
+    <a href="index.html" class="logout">Logout</a>
+  </div>
+
+  <script>
+    function saveAttendance() {
+      let name = document.getElementById("studentName").value;
+      let attendance = document.getElementById("attendance").value;
+
+      localStorage.setItem("studentName", name);
+      localStorage.setItem("attendance", attendance);
+
+      alert("Attendance Saved Successfully!");
+    }
+  </script>
+
 </body>
 </html>
