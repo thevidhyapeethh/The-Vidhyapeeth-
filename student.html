@@ -93,6 +93,39 @@ body{
   border-bottom:1px solid #ddd;
   padding-bottom:5px;
 }
+
+/* Subject Progress */
+.subject-row{
+  display:flex;
+  align-items:center;
+  margin:10px 0;
+}
+.subject-row span{
+  width:80px;
+}
+.subject-progress{
+  flex:1;
+  height:8px;
+  background:#ddd;
+  border-radius:5px;
+}
+.subject-progress .progress{
+  height:8px;
+  background:#2196F3;
+}
+
+/* Teacher List */
+.teacher{
+  display:flex;
+  align-items:center;
+  margin:10px 0;
+}
+.teacher img{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  margin-right:10px;
+}
 </style>
 </head>
 
@@ -133,6 +166,48 @@ body{
   <h3>📢 Notice Board</h3>
   <p>Extra Class on Friday</p>
   <p>Project submission next week</p>
+</div>
+
+<!-- SUBJECT PROGRESS -->
+<div class="section">
+  <h3>📊 Subject Progress</h3>
+
+  <div class="subject-row">
+    <span>English</span>
+    <div class="subject-progress">
+      <div class="progress" style="width:62%"></div>
+    </div>
+  </div>
+
+  <div class="subject-row">
+    <span>Maths</span>
+    <div class="subject-progress">
+      <div class="progress" style="width:75%"></div>
+    </div>
+  </div>
+
+  <div class="subject-row">
+    <span>Science</span>
+    <div class="subject-progress">
+      <div class="progress" style="width:67%"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TEACHER LIST -->
+<div class="section">
+  <h3>👨‍🏫 Teacher List</h3>
+
+  <div class="teacher">
+    <img src="https://i.pravatar.cc/40?img=3">
+    <span>Shivam Verma – Class Teacher</span>
+  </div>
+
+  <div class="teacher">
+    <img src="https://i.pravatar.cc/40?img=4">
+    <span>Albert Thomas – English</span>
+  </div>
+
 </div>
 
 </div>
