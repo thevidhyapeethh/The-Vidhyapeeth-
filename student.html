@@ -13,7 +13,6 @@
       display: flex;
     }
 
-    /* Sidebar */
     .sidebar {
       width: 240px;
       background: #263238;
@@ -49,14 +48,12 @@
       margin-top: 20px;
     }
 
-    /* Main */
     .main {
       margin-left: 260px;
       padding: 20px;
       width: 100%;
     }
 
-    /* Top Student Card */
     .top-card {
       background: white;
       display: flex;
@@ -81,12 +78,11 @@
 
     .progress {
       height: 10px;
+      width: 0%;
       background: #4CAF50;
-      width: 79%;
       border-radius: 5px;
     }
 
-    /* Sections */
     .section {
       margin-top: 20px;
       background: white;
@@ -157,22 +153,21 @@
     <a href="index.html" class="logout">Logout</a>
   </div>
 
-  <!-- Main Content -->
+  <!-- Main -->
   <div class="main">
 
-    <!-- Student Profile -->
+    <!-- Student Card -->
     <div class="top-card">
       <img src="https://i.imgur.com/8Km9tLL.png">
       <div>
         <h2>Welcome, Edward Thomas</h2>
-        <p>Attendance: 79.3%</p>
+        <p id="attendanceText">Attendance: --%</p>
         <div class="progress-bar">
-          <div class="progress"></div>
+          <div class="progress" id="attendanceFill"></div>
         </div>
       </div>
     </div>
 
-    <!-- Notice Board -->
     <div class="section">
       <h3>📢 Notice Board</h3>
       <div class="notice-item">Online Learning Notice - 12/11/2025</div>
@@ -180,7 +175,6 @@
       <div class="notice-item">Book Collection - 12/06/2025</div>
     </div>
 
-    <!-- Subject Progress -->
     <div class="section">
       <h3>📊 Subject Progress</h3>
       <div class="subject-row">
@@ -197,20 +191,35 @@
       </div>
     </div>
 
-    <!-- Teacher List -->
     <div class="section">
       <h3>👨‍🏫 Teacher List</h3>
       <div class="teacher">
-        <img src="https://i.pravatar.cc/40?img=3">
-        Shivam Verma – Class Teacher
+        <img src="https://i.pravatar.cc/40?img=3"> Shivam Verma – Class Teacher
       </div>
       <div class="teacher">
-        <img src="https://i.pravatar.cc/40?img=4">
-        Albert Thomas – English
+        <img src="https://i.pravatar.cc/40?img=4"> Albert Thomas – English
       </div>
     </div>
 
   </div>
+
+  <!-- Attendance Script -->
+  <script>
+    const totalClasses = localStorage.getItem("totalClasses") || 180;
+    const attendedClasses = localStorage.getItem("attendedClasses") || 0;
+
+    const attendancePercent = Math.round(
+      (attendedClasses / totalClasses) * 100
+    );
+
+    document.getElementById("attendanceText").innerHTML =
+      `Attendance: <b>${attendancePercent}%</b> 
+      ${attendancePercent >= 75 ? "(Above minimum requirement)" : "(Below minimum requirement)"}`;
+
+    const bar = document.getElementById("attendanceFill");
+    bar.style.width = attendancePercent + "%";
+    bar.style.background = attendancePercent < 75 ? "crimson" : "#4CAF50";
+  </script>
 
 </body>
 </html>
