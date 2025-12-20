@@ -168,6 +168,7 @@
       </div>
     </div>
 
+    <!-- Notice -->
     <div class="section">
       <h3>📢 Notice Board</h3>
       <div class="notice-item">Online Learning Notice - 12/11/2025</div>
@@ -175,22 +176,30 @@
       <div class="notice-item">Book Collection - 12/06/2025</div>
     </div>
 
+    <!-- Subject Progress -->
     <div class="section">
       <h3>📊 Subject Progress</h3>
       <div class="subject-row">
         <span>English</span>
-        <div class="subject-progress"><div class="progress" style="width:62%"></div></div>
+        <div class="subject-progress">
+          <div class="progress" id="englishProgress"></div>
+        </div>
       </div>
       <div class="subject-row">
         <span>Maths</span>
-        <div class="subject-progress"><div class="progress" style="width:75%"></div></div>
+        <div class="subject-progress">
+          <div class="progress" id="mathsProgress"></div>
+        </div>
       </div>
       <div class="subject-row">
         <span>Science</span>
-        <div class="subject-progress"><div class="progress" style="width:67%"></div></div>
+        <div class="subject-progress">
+          <div class="progress" id="scienceProgress"></div>
+        </div>
       </div>
     </div>
 
+    <!-- Teacher -->
     <div class="section">
       <h3>👨‍🏫 Teacher List</h3>
       <div class="teacher">
@@ -203,10 +212,11 @@
 
   </div>
 
-  <!-- Attendance Script -->
+  <!-- DYNAMIC DATA SCRIPT -->
   <script>
+    // Attendance Data (Admin panel se set hoga)
     const totalClasses = localStorage.getItem("totalClasses") || 180;
-    const attendedClasses = localStorage.getItem("attendedClasses") || 0;
+    const attendedClasses = localStorage.getItem("attendedClasses") || 140;
 
     const attendancePercent = Math.round(
       (attendedClasses / totalClasses) * 100
@@ -219,7 +229,15 @@
     const bar = document.getElementById("attendanceFill");
     bar.style.width = attendancePercent + "%";
     bar.style.background = attendancePercent < 75 ? "crimson" : "#4CAF50";
+
+    // Subject Progress (Admin panel se control)
+    document.getElementById("englishProgress").style.width =
+      (localStorage.getItem("english") || 62) + "%";
+    document.getElementById("mathsProgress").style.width =
+      (localStorage.getItem("maths") || 75) + "%";
+    document.getElementById("scienceProgress").style.width =
+      (localStorage.getItem("science") || 67) + "%";
   </script>
 
 </body>
-</html>
+  </html>
